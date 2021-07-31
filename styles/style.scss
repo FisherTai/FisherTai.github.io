@@ -1,0 +1,160 @@
+
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*不讓點擊*/
+i{
+  pointer-events: none;
+}
+
+
+body{
+  background: linear-gradient(90deg,rgb(84,130,255),rgb(100,255,134));
+}
+
+header{
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body{
+  background: linear-gradient(90deg,rgb(84,130,255),rgb(100,255,134));
+}
+
+header{
+  height: 20vh;
+  @include flex_center();
+  h1{
+    color: white;
+    font-size: 3rem;
+  }
+}
+
+form{
+  @include flex_center();
+  
+  input,
+  button{
+    border: none;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.75rem;
+    margin: 0.1rem;
+  }
+
+  input[type="number"]{
+    width: 50px;
+    text-align: center;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  button{
+    cursor: pointer;
+    background-color: rgb(0,146,114);
+    color: white;
+  }
+}
+
+div.sort{
+  @include flex_center();
+  margin: 1rem 0rem;
+
+  button{
+    cursor: pointer;
+    background-color: rgb(0,146,114);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    font-size: 1.75rem;
+    border: none;
+  }
+
+}
+
+section{
+  @include flex_center();
+  flex-direction: column;
+  div.todo{
+    width: 30vw;
+    @include flex_center();
+    margin:0.2rem 0rem;
+    transition: all 0.15s ease ;
+    flex-wrap: wrap;
+    p{
+      background-color: white;
+      color: black;
+      padding: 0.25rem 0.5rem;
+      font-size: 1.75rem;
+      overflow: hidden;
+    }
+    p.todo-text{
+      min-width: 50%;
+    }
+    p.todo-time{
+      min-width: 20%;
+      text-align: center;
+    }
+    button{
+      padding: 0.25rem 0.5rem;
+      font-size: 1.75rem;
+      border: none;
+      cursor:pointer;
+      color: white;
+    }
+
+    button.complete{
+      background-color: green;
+    }
+
+    button.trash{
+      background-color: red;
+    }
+
+  }
+}
+
+//設定完成的效果
+.done{
+  opacity: 0.5 ;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2rem;
+}
+
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
+
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+  }
+  to{
+    transform: scale(0);
+  }
+}
